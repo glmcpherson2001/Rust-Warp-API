@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Rust Warp",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

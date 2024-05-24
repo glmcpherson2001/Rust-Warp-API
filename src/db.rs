@@ -1,4 +1,4 @@
-use crate::models::Post;
+use crate::models::{CreatePost, Post};
 
 #[derive(Default)]
 pub struct PostDb {
@@ -10,8 +10,15 @@ impl PostDb {
         Self { posts: Vec::new() }
     }
 
-    pub fn add_post(&mut self, post: Post){
-        self.posts.push(post)
+    pub fn add_post(&mut self, post: CreatePost) -> &Post {
+        let new_post = Post {
+            id: self.posts.len() as u64 + 1,
+            title: post.title,
+            body: post.body
+        };
+        self.posts.push(new_post);
+        
+        self.posts.last().unwrap()
     }
 
     pub fn get_post(&mut self, id: u64) -> Option<&Post> {

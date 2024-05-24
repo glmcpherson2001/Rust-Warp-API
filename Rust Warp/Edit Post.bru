@@ -1,0 +1,17 @@
+meta {
+  name: Edit Post
+  type: http
+  seq: 5
+}
+
+patch {
+  url: http://localhost:3000/posts/2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "body": "New Body :P"
+  }
+}

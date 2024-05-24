@@ -6,7 +6,7 @@ mod routes;
 mod db;
 
 use crate::db::PostDb;
-use crate::models::Post;
+use crate::models::CreatePost;
 
 #[tokio::main]
 async fn main() {
@@ -16,8 +16,8 @@ async fn main() {
 
     {
         let mut db = db.lock().unwrap();
-        db.add_post(Post { id: 1, title: "First Post".to_string(), body: "My First Post".to_string()});
-        db.add_post(Post { id: 2, title: "Second Post".to_string(), body: "My Second Post".to_string()});
+        db.add_post(CreatePost { title: "First Post".to_string(), body: "My First Post".to_string()});
+        db.add_post(CreatePost { title: "Second Post".to_string(), body: "My Second Post".to_string()});
     }
 
     // Create the routes
